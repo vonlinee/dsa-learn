@@ -7,8 +7,8 @@ import java.util.Set;
 
 /**
  * 环形链表: https://leetcode.cn/problems/linked-list-cycle/s
- *
- *
+ * <p>
+ * <p>
  * https://leetcode.cn/leetbook/read/top-interview-questions-easy/xnwzei/
  */
 public class P141 {
@@ -50,6 +50,7 @@ public class P141 {
 
     /**
      * 通过：快慢指针
+     * 就像时针和分针总会重叠
      * @param head
      * @return
      */

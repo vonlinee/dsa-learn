@@ -6,6 +6,9 @@ package algorithm.recursive;
  * 从n个不同元素中任取m个(约定1＜m≤n)，按任意一种次序排成一列，称为排列，其排列种数记为A(n, m)
  * <p>
  * 从n个不同元素中任取m个(约定1＜m＜n)成一组，称为一个组合，其组合种数记为C(n, m)。
+ * <p>
+ * <p>
+ * P 和 C 的本质区别在于：决策的顺序对结果有没有影响。
  */
 public class PermutationAndCombination {
 
@@ -46,9 +49,14 @@ public class PermutationAndCombination {
         return s;
     }
 
+    public void combination() {
+
+    }
+
     public static void main(String[] args) {
         PermutationAndCombination test = new PermutationAndCombination();
 
-        test.permutation(1, 2, 3, new int[30], 0);
+        int permutation = test.permutation(1, 2, 3, new int[30], 0);
+
     }
 }

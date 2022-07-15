@@ -1,6 +1,6 @@
 package algorithm;
 
-public class TestBitOperation {
+public class BitOperation {
 
     public static void main(String[] args) {
 //        print(4);

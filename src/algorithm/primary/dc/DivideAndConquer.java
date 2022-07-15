@@ -1,4 +1,4 @@
-package algorithm.dc;
+package algorithm.primary.dc;
 
 /**
  * 分治算法

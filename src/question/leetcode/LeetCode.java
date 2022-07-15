@@ -8,7 +8,7 @@ import java.util.LinkedList;
 /**
  * @since created on 2022年6月21日
  */
-public class LeetCode {
+public abstract class LeetCode {
 
     /**
      * Leetcode通用的树结构
@@ -229,8 +229,8 @@ public class LeetCode {
     }
 
     public static void printlnArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (int j : arr) {
+            System.out.print(j + " ");
         }
         System.out.println();
     }

@@ -48,9 +48,7 @@ public class P45_JumpGame2 {
         int val = nums[index];
         if (val == 0) return;
         for (int i = 1; i <= val; i++) {
-
             // index = index + i; // 不能这么写，index值在当前节点处不能变
-
             jump(nums, index + i, totalTimes + 1, list);
         }
     }
@@ -64,8 +62,10 @@ public class P45_JumpGame2 {
         for (int i = 0; i < nums.length; i++) {
             // 计算下一次跳到的地点
             // i + nums[i]表示能跳到的最远的位置
+            // 每次都跳最大距离
             nextreach = Math.max(i + nums[i], nextreach);
             if (nextreach >= nums.length - 1) return (step + 1);
+            // i == reach 表示要进行跳跃
             if (i == reach) {
                 step++;
                 reach = nextreach;
@@ -75,7 +75,7 @@ public class P45_JumpGame2 {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2, 3, 1, 1, 4};
+        int[] nums = {2, 3, 0, 1, 2, 5};
         int jump = jump1(nums);
         System.out.println(jump);
     }

@@ -11,10 +11,10 @@ import java.util.Set;
  * <p>
  * https://leetcode.cn/leetbook/read/top-interview-questions-easy/xnwzei/
  */
-public class P141 {
+public class P141_CheckCycleList {
 
     public static void main(String[] args) {
-        P141 p = new P141();
+        P141_CheckCycleList p = new P141_CheckCycleList();
         int[] nums = {3, 2, 0, -4};
         ListNode head = createCycle(nums, 1);
 

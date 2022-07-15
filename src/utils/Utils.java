@@ -1,16 +1,52 @@
 package utils;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringJoiner;
+import java.util.*;
 
 public abstract class Utils {
 
     private Utils() {}
 
+    public static void printf(String format, Object... args) {
+        System.out.printf(format, args);
+    }
+
+    public static void print(String format, Object... args) {
+        System.out.print(new Formatter().format(format, args));
+    }
+
+    public static void println(String format, Object... args) {
+        System.out.println(new Formatter().format(format, args));
+    }
+
+    public static void printlnList(List<?> list) {
+        list.forEach(System.out::println);
+    }
+
+    public static void printlnMap(Map<?, ?> map) {
+        for (Map.Entry<?, ?> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+
     public static void printlnArray(int[] nums) {
         System.out.println(Arrays.toString(nums));
+    }
+
+    public static String string(int[] nums, int fromIndex, int toIndex) {
+        StringJoiner s = new StringJoiner(", ", "[", "]");
+        for (int i = fromIndex; i <= toIndex; i++) {
+            s.add(String.valueOf(nums[i]));
+        }
+        return s.toString();
+    }
+
+    public static void printlnArray(int[] nums, int val) {
+        System.out.print("[");
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == val) continue;
+            System.out.print(nums[i] + " ");
+        }
+        System.out.print("]\n");
     }
 
     public static int maxValueOf(int[] arr) {
@@ -21,6 +57,14 @@ public abstract class Utils {
             }
         }
         return max;
+    }
+
+    public static int sum(int[] arr) {
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
+        }
+        return sum;
     }
 
     public static int minValueOf(int[] arr) {
@@ -252,7 +296,83 @@ public abstract class Utils {
         return finalArr;
     }
 
-    public static void main(String[] args) {
+    /**
+     * 数组打印
+     * @param nums
+     */
+    public static void arrayBackPrint(int[][] nums) {
+        if (nums == null) {
+            throw new RuntimeException("invalid param");
+        }
+        if (nums.length == 0) {
+            return;
+        }
+        int top = 0;
+        int bottom = nums.length - 1;
+        int left = 0;
+        int right = nums[0].length - 1;
+        while (top <= bottom && left <= right) {
+            for (int i = left; i <= right; i++) {
+                System.out.print(nums[top][i] + " ");
+            }
+            top++;
+            if (top > bottom || left > right) {
+                break;
+            }
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(nums[i][right] + " ");
+            }
+            right--;
+            if (top > bottom || left > right) {
+                break;
+            }
+            for (int i = right; i >= left; i--) {
+                System.out.print(nums[bottom][i] + " ");
+            }
+            bottom--;
+            if (top > bottom || left > right) {
+                break;
+            }
+            for (int i = bottom; i >= top; i--) {
+                System.out.print(nums[i][left] + " ");
+            }
+            left++;
+            System.out.println();
+        }
+    }
 
+    public static void printlnArray(int[][] nums) {
+        if (nums == null) {
+            throw new RuntimeException("invalid param");
+        }
+        if (nums.length == 0) {
+            return;
+        }
+        for (int[] num : nums) {
+            for (int j = 0; j < nums[0].length; j++) {
+                System.out.print(num[j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printCharTable() {
+        for (int i = 'a'; i < 'z'; i++) {
+            System.out.println((char) i + " = " + i + " " + (char) (i - 32) + " = " + (i - 32));
+        }
+    }
+
+    public static <T> void printlnArray(T[] arr) {
+        for (T t : arr) {
+            System.out.println(t);
+        }
+    }
+
+    public static void printAllSubString(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i + 1; j <= str.length(); j++) {
+                System.out.println(str.substring(i, j));
+            }
+        }
     }
 }

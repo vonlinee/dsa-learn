@@ -1,4 +1,4 @@
-package algorithm.recursive;
+package algorithm.primary.recursive;
 
 /**
  * 排列组合问题

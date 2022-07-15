@@ -1,4 +1,4 @@
-package algorithm.dp;
+package algorithm.primary.dp;
 
 import java.util.Arrays;
 

@@ -1,11 +1,14 @@
 package question.nowcoder.huawei.od;
 
+import utils.Utils;
+
 import java.util.*;
 
 /**
+ * 华为机试23题总结
  * https://blog.csdn.net/u013598405/article/details/114239804?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%A4%AA%E9%98%B3%E8%83%BD%E6%9D%BF%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-6-114239804.nonecase&spm=1018.2226.3001.4187
  */
-public class QuestionCollection {
+public class QuestionCollection1 {
 
     // 如果三个正整数A B C满足A²+B²=C²则为勾股数
     // 如果ABC之间两两互质，即A与B A与C B与C均互质没有公约数，则称其为勾股数元组。
@@ -208,11 +211,169 @@ public class QuestionCollection {
 
     }
 
+    /*
+           喊7 是一个传统的聚会游戏
+           N个人围成一圈
+           按顺时针从1-7编号
+           编号为1的人从1开始喊数
+           下一个人喊得数字是上一个人喊得数字+1
+           但是当将要喊出数字7的倍数或者含有7的话
+           不能喊出 而是要喊过
+
+           假定N个人都没有失误。
+           当喊道数字k时
+           可以统计每个人喊 “过"的次数
+
+           现给定一个长度n的数组
+           存储打乱的每个人喊”过"的次数
+           请把它还原成正确顺序
+
+           即数组的第i个元素存储编号i的人喊“过“的次数
+
+              输入为1行
+              空格分割的喊过的次数
+              注意k并不提供
+
+              k不超过200
+              数字个数为n
+              输出描述
+
+              输出为1行
+              顺序正确的喊过的次数  空格分割
+
+              例子
+              输入
+                0 1 0
+              输出
+                1 0 0
+
+              只有一次过
+              发生在7
+              按顺序编号1的人遇到7  所以100
+              结束时的k不一定是7 也可以是 8 9
+                喊过都是100
+
+                例子
+              输入
+                0 0 0 2 1
+              输出
+                0 2 0 1 0
+              一共三次喊过
+              发生在7 14 17
+              编号为2 的遇到7 17
+              编号为4 的遇到14
+            */
+    public void question18(int[] nums) {
+        // 有几个人
+        int N = nums.length;
+        // k不超过200，所以只有报数
+        // 1.肯定是编号在前的喊到的次数更多
+
+        // 找到最大的喊到的次数
+
+        int sum = Utils.sum(nums);
+        System.out.println("喊到的总次数 = " + sum);
+        // 喊到的总次数
+        int totalNum = 0;
+        // 从1开始报数
+        int num = 1;
+        while (true) {
+            if (contains7(num)) {
+                System.out.println(num);
+                totalNum++;
+            }
+            if (totalNum == sum) {
+                System.out.println("最后喊到报的数字 = " + num);
+                break;
+            }
+            num++;
+        }
+        // 此时的num为喊到结束的最低次数，最低报数
+        System.out.println("最终报的数 = " + num);
+        // 然后模拟喊到
+        int[] arr = new int[N];
+
+        // i表示每次报的数
+        for (int i = 1; i <= num; i++) {
+            if (contains7(i)) {
+                // 喊到次数加1
+                System.out.println("喊到: " + i + "  " + i % N);
+                // 因为是从1开始报数，但是数组下标最低是0，因此要减少1
+                // 同时 i % N - 1不可能小于0
+                arr[i % N - 1]++;
+            }
+        }
+
+        // 拼上arr的结果即可
+        StringBuilder s = new StringBuilder();
+        for (int j : arr) {
+            s.append(j).append(" ");
+        }
+        System.out.println(s);
+    }
+
+    public boolean contains7(int n) {
+        // 数字7的倍数
+        if (n % 7 == 0) return true;
+        //或者含有7的话
+        while (n != 0) {
+            int i = n % 10;
+            if (i == 7) return true;
+            n = n / 10;
+        }
+        return false;
+    }
+
+    /**
+     * 【字符统计及重排】给出一个仅包含字母的字符串，不包含空格，统计字符串中各个字母(区分大小写)出现的次数，并按照字母出现次数从大到小的顺序输出各个字母及
+     * 其出现次数。如果次数相同，按照自然顺序进行排序，且小写字母在大写字母之前。
+     * 输入描述:
+     * 输入一行，为一个仅包含字母的字符串。
+     * 输出描述:
+     * 按照字母出现次数从大到小的顺序输出各个字母和字母次数，用英文分号分隔，注意末尾的分号;字母和次数间用英文冒号分隔。
+     * 示例1:
+     * 输入
+     * xyxyXX
+     * 输出
+     * x:2;y:2;X:2;
+     * @param str
+     */
+    public void question20(String str) {
+        char[] chars = str.toCharArray();
+
+        // 统计字母个数
+        int[] arr = new int[52];
+        for (int i = 0; i < chars.length; i++) {
+            if ('a' <= chars[i] && chars[i] <= 'z') {
+                arr[chars[i] - 'a']++;
+                continue;
+            }
+            if ('A' <= chars[i] && chars[i] <= 'Z') {
+                arr[chars[i] - 'A' + 26]++;
+            }
+        }
+        // 降序排序
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) continue;
+            char c = 0;
+            if (i < 26) {
+                c = (char) (i + 'a');
+            } else {
+                c = (char) (i + 'A' - 26);
+            }
+            System.out.println(c + ":" + arr[i]);
+        }
+    }
+
     public static void main(String[] args) {
-        int[] arr1 = {3, 1, 1, 2};
+        int[] arr1 = {0, 0, 0, 2, 1};
         int[] arr2 = {3, 1, 2, 3};
         int k = 2;
-        QuestionCollection solution = new QuestionCollection();
-        solution.question5(50);
+        QuestionCollection1 solution = new QuestionCollection1();
+        // solution.question18(arr1);
+
+        solution.question20("xyxyXX");
+
+        Utils.printCharTable();
     }
 }

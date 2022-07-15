@@ -328,7 +328,4 @@ public class Chuji_P1 {
         return 0;
     }
 
-
-
-
 }

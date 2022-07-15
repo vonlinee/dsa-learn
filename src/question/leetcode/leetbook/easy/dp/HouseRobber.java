@@ -105,6 +105,9 @@ public class HouseRobber {
         int length = nums.length;
         // 其中dp[i][0]表示第i+1（因为数组下标是从0开始的，所以这里是i+1）家偷了的最大总金额，
         // dp[i][1]表示的是第i+1家没偷的最大总金额
+
+        // 因为所有解中每一家都只有偷了和没偷两种情况
+
         int[][] dp = new int[length][2];
         dp[0][0] = 0;//第1家没偷
         dp[0][1] = nums[0];//第1家偷了

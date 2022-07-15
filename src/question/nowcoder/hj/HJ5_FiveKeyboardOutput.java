@@ -3,6 +3,7 @@ package question.nowcoder.hj;
 import java.util.Scanner;
 
 /**
+ * 5键键盘输出
  * https://blog.nowcoder.net/n/c7bb482cddb647b5965c2f55ef13f7da
  */
 public class HJ5_FiveKeyboardOutput {

@@ -1,8 +1,8 @@
 package algorithm.primary;
 
-import algorithm.sort.SortAlgorithm;
+import algorithm.primary.sort.SortAlgorithm;
 
-import static algorithm.sort.SortAlgorithm.printArray;
+import static algorithm.primary.sort.SortAlgorithm.printArray;
 
 /**
  * https://www.bilibili.com/video/BV1Zr4y1W7ww?p=13

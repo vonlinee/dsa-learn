@@ -1,4 +1,4 @@
-package algorithm.back;
+package algorithm.primary.back;
 
 import java.lang.reflect.Array;
 

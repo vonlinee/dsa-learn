@@ -1,4 +1,4 @@
-package question.leetcode.category.tree;
+package question.leetcode.primary.tree;
 
 import question.leetcode.LeetCode.TreeNode;
 

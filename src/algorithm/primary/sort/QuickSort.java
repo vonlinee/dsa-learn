@@ -1,4 +1,4 @@
-package algorithm.sort;// Java implementation of QuickSort
+package algorithm.primary.sort;// Java implementation of QuickSort
 
 public class QuickSort {
 

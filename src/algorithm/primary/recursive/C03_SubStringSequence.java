@@ -1,4 +1,4 @@
-package algorithm.recursive;
+package algorithm.primary.recursive;
 
 import java.util.ArrayList;
 import java.util.List;

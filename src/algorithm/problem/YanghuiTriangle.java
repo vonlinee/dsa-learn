@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.problem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,6 +40,7 @@ public class YanghuiTriangle {
         // 得到结果并操作
         System.out.println(Arrays.toString(currentRow));
         yanghui(currentRow, numRows - 1);
+        // 倒序输出，System.out.println(Arrays.toString(currentRow));
     }
 
     public void yanghuiInList(Integer[] lastRow, int numRows, List<List<Integer>> rows) {

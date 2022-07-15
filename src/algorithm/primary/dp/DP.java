@@ -1,4 +1,4 @@
-package algorithm.dp;
+package algorithm.primary.dp;
 
 public class DP {
 

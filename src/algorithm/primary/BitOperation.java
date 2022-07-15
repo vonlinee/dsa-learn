@@ -1,5 +1,8 @@
-package algorithm;
+package algorithm.primary;
 
+/**
+ * 位运算
+ */
 public class BitOperation {
 
     public static void main(String[] args) {

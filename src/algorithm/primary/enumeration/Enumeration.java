@@ -1,4 +1,4 @@
-package algorithm.enumeration;
+package algorithm.primary.enumeration;
 
 /**
  * 枚举

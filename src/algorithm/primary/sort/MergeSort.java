@@ -1,4 +1,4 @@
-package algorithm.sort;
+package algorithm.primary.sort;
 
 public class MergeSort {
     // Merges two subarrays of arr[].

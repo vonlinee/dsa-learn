@@ -1,4 +1,4 @@
-package algorithm.recursive;
+package algorithm.primary.recursive;
 
 /**
  * 汉诺塔问题

@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.primary.enumeration;
 
 /**
  * 求阶乘之和

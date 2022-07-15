@@ -1,4 +1,4 @@
-package algorithm.common.window;
+package algorithm.advanced.window;
 
 /**
  * 滑动窗口算法: https://www.cnblogs.com/huansky/p/13488234.html

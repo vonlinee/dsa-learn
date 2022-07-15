@@ -1,4 +1,4 @@
-package algorithm.back;
+package algorithm.primary.back;
 
 /*
  * 在n×n格的棋盘上放置彼此不受攻击的n个皇后。按照

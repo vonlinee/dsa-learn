@@ -1,4 +1,4 @@
-package question.leetcode.category.sort;
+package question.leetcode.primary.sort;
 
 import java.util.Arrays;
 

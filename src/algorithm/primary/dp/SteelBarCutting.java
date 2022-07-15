@@ -1,4 +1,4 @@
-package algorithm.dp;
+package algorithm.primary.dp;
 
 /**
  * 钢条切割问题：摘自算法导论第三版

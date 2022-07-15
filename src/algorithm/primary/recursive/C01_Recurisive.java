@@ -1,4 +1,4 @@
-package algorithm.recursive;
+package algorithm.primary.recursive;
 
 public class C01_Recurisive {
 

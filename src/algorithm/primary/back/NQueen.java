@@ -1,4 +1,4 @@
-package algorithm.back;
+package algorithm.primary.back;
 
 /**
  * N皇后问题
